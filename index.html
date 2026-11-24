@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>運転・操作の安全教育アプリ｜合同会社アップテック</title>
+<meta name="description" content="「相手からどう見えているか」を、母語とスマホで体験する安全教育の補助教材。フォークリフト誘導訓練・建機セーフティ・シム。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#edf0f4;--panel:#ffffff;--line:#dde2e8;--navy:#26405f;--navy2:#1b2f47;--text:#1f2328;--muted:#5f6670;--accent:#e9a400;--soft:#f5f7fa}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);line-height:1.75;font-size:16px}
+a{color:var(--navy)}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+.draft{background:#fff7e0;border-bottom:1px solid #f0d58a;color:#7a5600;font-size:13px;text-align:center;padding:6px 12px}
+header{background:var(--panel);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:10}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:60px;gap:16px}
+.logo{font-weight:900;color:var(--navy);text-decoration:none;font-size:17px}
+.logo small{display:block;font-size:11px;font-weight:500;color:var(--muted);line-height:1.2}
+nav a{font-size:14px;text-decoration:none;color:var(--text);margin-left:18px}
+nav a:hover{color:var(--navy)}
+@media(max-width:760px){nav{display:none}}
+.btn{display:inline-block;border-radius:8px;padding:12px 22px;font-weight:700;text-decoration:none;border:2px solid var(--navy);cursor:pointer;font-size:15px;font-family:inherit}
+.btn.primary{background:var(--navy);color:#fff}
+.btn.primary:hover{background:var(--navy2)}
+.btn.ghost{background:#fff;color:var(--navy)}
+.hero{padding:64px 0 48px}
+.hero .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center}
+@media(max-width:860px){.hero .wrap{grid-template-columns:1fr}}
+.eyebrow{color:var(--navy);font-weight:700;font-size:14px;letter-spacing:.04em}
+.hero h1{font-size:clamp(28px,4.2vw,44px);line-height:1.35;font-weight:900;margin:10px 0 16px}
+.hero p.lead{font-size:17px;color:#333;margin-bottom:24px}
+.hero .cta{display:flex;gap:12px;flex-wrap:wrap}
+.tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:20px}
+.tag{background:#fff;border:1px solid var(--line);border-radius:999px;padding:4px 12px;font-size:13px;color:var(--muted)}
+.figure{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:20px}
+.figure p{font-size:13px;color:var(--muted);margin-top:8px;text-align:center}
+section{padding:56px 0}
+section.alt{background:var(--panel);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+h2{font-size:clamp(22px,3vw,30px);font-weight:900;color:var(--navy);margin-bottom:8px}
+.sec-lead{color:var(--muted);margin-bottom:28px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+@media(max-width:860px){.grid3,.grid2{grid-template-columns:1fr}}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:22px}
+section.alt .card{background:var(--soft)}
+.card h3{font-size:18px;margin-bottom:6px}
+.card p{font-size:15px;color:#3a3f45}
+.num{display:inline-block;width:28px;height:28px;border-radius:50%;background:var(--navy);color:#fff;text-align:center;line-height:28px;font-weight:700;font-size:14px;margin-bottom:8px}
+.insight{background:var(--navy);color:#fff;border-radius:16px;padding:28px 30px}
+.insight h3{font-size:22px;margin-bottom:10px}
+.insight p{color:#dfe6ef}
+.app{display:flex;flex-direction:column;gap:10px}
+.app .status{font-size:12px;font-weight:700;border-radius:6px;padding:2px 8px;align-self:flex-start}
+.status.ok{background:#e3eefb;color:var(--navy)}
+.status.dev{background:#f1f1f1;color:var(--muted)}
+.app ul{padding-left:1.2em;font-size:14.5px;color:#3a3f45}
+.app .btn{margin-top:auto;align-self:flex-start;padding:9px 16px;font-size:14px}
+.price{display:flex;flex-direction:column;gap:10px;position:relative}
+.price.feature{border:2px solid var(--navy)}
+.price .label{font-size:13px;font-weight:700;color:var(--navy)}
+.price .amount{font-size:32px;font-weight:900}
+.price .amount small{font-size:14px;font-weight:500;color:var(--muted)}
+.price ul{padding-left:1.2em;font-size:14.5px;color:#3a3f45}
+.price .btn{margin-top:auto}
+.badge{position:absolute;top:-12px;left:20px;background:var(--accent);color:#1f2328;font-size:12px;font-weight:700;border-radius:6px;padding:2px 10px}
+.note{font-size:13px;color:var(--muted);margin-top:16px}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+@media(max-width:860px){.steps{grid-template-columns:1fr 1fr}}
+details{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px 18px;margin-bottom:10px}
+details summary{font-weight:700;cursor:pointer}
+details p{margin-top:8px;font-size:15px;color:#3a3f45}
+.caution{background:#fff;border-left:6px solid var(--accent);border-radius:8px;padding:16px 20px;font-size:15px}
+table.law{width:100%;border-collapse:collapse;background:var(--panel);font-size:14.5px}
+table.law th,table.law td{border:1px solid var(--line);padding:10px 14px;text-align:left;vertical-align:top}
+table.law th{background:var(--soft);width:30%;font-weight:700}
+.todo{color:#b45309;font-weight:700}
+.card.app .langs{font-size:12px;color:var(--muted);margin:8px 0 12px}
+form.contact{display:grid;gap:12px;max-width:640px}
+form.contact label{font-size:14px;font-weight:700}
+form.contact input,form.contact select,form.contact textarea{width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:8px;font:inherit;background:#fff}
+#formMsg{font-size:14px;color:var(--navy);font-weight:700}
+footer{background:var(--navy2);color:#cfd8e3;padding:32px 0;font-size:13px}
+footer a{color:#fff}
+</style>
+</head>
+<body>
+
+
+<header>
+  <div class="wrap">
+    <a class="logo" href="#top">運転・操作の安全教育アプリ<small>合同会社アップテック</small></a>
+    <nav>
+      <a href="#apps">アプリ</a>
+      <a href="#use">使い方</a>
+      <a href="#price">料金</a>
+      <a href="#faq">よくある質問</a>
+      <a href="#contact">ご相談</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ヒーロー -->
+<div class="hero">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow">安全教育の補助教材｜スマホ1台・多言語</p>
+      <h1>「説明したから大丈夫」を、<br>「確かめたから大丈夫」に。</h1>
+      <p class="lead">フォークリフトのまわりで、運転席から見えない場所に人が立つ。言葉で説明しても伝わりにくいこの危険を、誘導員と運転者の目線を切り替えて体で学び、1分のチェックで「伝わったか」を確かめ、受講記録で振り返る。安全教育の補助教材です。</p>
+      <div class="cta">
+        <a class="btn primary" href="#apps">無料の体験版を試す</a>
+        <a class="btn ghost" href="#contact">お試しを相談する</a>
+      </div>
+      <div class="tags">
+        <span class="tag">インストール不要</span>
+        <span class="tag">VRゴーグル不要</span>
+        <span class="tag">日本語・やさしい日本語・英語・ベトナム語・インドネシア語など</span>
+      </div>
+    </div>
+    <div class="figure" aria-label="運転席から見えない範囲の図">
+      <svg viewBox="0 0 400 300" width="100%" role="img" aria-labelledby="figTitle">
+        <title id="figTitle">フォークリフトの運転席から見えない範囲と誘導員の立ち位置</title>
+        <rect x="0" y="0" width="400" height="300" rx="12" fill="#f5f7fa"/>
+        <path d="M200 150 L60 20 L340 20 Z" fill="#dbe7f5"/>
+        <path d="M200 150 L120 290 L280 290 Z" fill="#f6d9d9"/>
+        <path d="M200 150 L20 200 L20 290 L120 290 Z" fill="#f6d9d9" opacity=".6"/>
+        <rect x="176" y="118" width="48" height="70" rx="6" fill="#26405f"/>
+        <rect x="183" y="96" width="6" height="26" fill="#26405f"/>
+        <rect x="211" y="96" width="6" height="26" fill="#26405f"/>
+        <rect x="188" y="140" width="24" height="20" rx="3" fill="#ffffff" opacity=".85"/>
+        <circle cx="250" cy="250" r="12" fill="#e9a400"/>
+        <rect x="244" y="262" width="12" height="20" rx="4" fill="#e9a400"/>
+        <circle cx="330" cy="120" r="12" fill="#2f7d4f"/>
+        <rect x="324" y="132" width="12" height="20" rx="4" fill="#2f7d4f"/>
+        <text x="200" y="48" text-anchor="middle" font-size="14" fill="#26405f" font-weight="700">運転席から見える</text>
+        <text x="200" y="230" text-anchor="middle" font-size="14" fill="#9b2c2c" font-weight="700">見えない（荷物・車体の陰）</text>
+        <text x="250" y="232" font-size="0">.</text>
+        <text x="268" y="256" font-size="12" fill="#7a5600">危ない立ち位置</text>
+        <text x="344" y="114" font-size="12" fill="#2f7d4f">見える位置</text>
+      </svg>
+      <p>視点を切り替えると、誘導員がどこに立つと危ないかが分かります（図はイメージ）。</p>
+    </div>
+  </div>
+</div>
+
+<!-- 気づき -->
+<section class="alt" id="why">
+  <div class="wrap">
+    <h2>なぜ「見え方」なのか</h2>
+    <p class="sec-lead">安全教育では、合図や手順は教えても、相手からどう見えているかは体験する機会がほとんどありません。</p>
+    <div class="insight">
+      <h3>言葉で説明しても、見え方は伝わらない。</h3>
+      <p>開発者自身が訓練の現場で誘導を任されたとき、運転席からどう見えているのか分からず、どこに立てばよいか迷いました。この体験から、誘導員と運転者の目線を切り替えて練習できるアプリを作りました。外国人の方や新人の方にも、母語で予習してもらえます。</p>
+    </div>
+    <div class="grid3" style="margin-top:20px">
+      <div class="card"><h3>外国人の方にも伝わる</h3><p>画面を母語に切り替えて学べます。合図の言葉は「日本語（訳）」で表示し、現場で使う日本語も一緒に覚えられます。</p></div>
+      <div class="card"><h3>機材を止めずに練習</h3><p>実機を使わずに、スマホ・タブレット・PCで何度でも練習できます。講習の前の予習や、あとの復習に使えます。</p></div>
+      <div class="card"><h3>2人で声をかけ合う</h3><p>1人が運転、もう1人が声で誘導する2人練習ができます。検定（100点からの減点式）で理解度も確かめられます。</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- アプリ -->
+<section id="apps">
+  <div class="wrap">
+    <h2>アプリの一覧</h2>
+    <p class="sec-lead">体験版は無料で、どなたでもすぐに試せます。お試し（3人・2週間）では、事前・事後の1分チェック、受講記録、振り返り報告をお使いいただけます。</p>
+    <div class="grid3">
+      <div class="card app">
+        <span class="status ok">体験版あり・おすすめ</span>
+        <h3>フォークリフト誘導訓練</h3>
+        <ul>
+          <li>誘導員モード／運転者モード／2人練習</li>
+          <li>上方・運転席・誘導員の視点切替</li>
+          <li>作業前点検（チェーンのたるみ確認など）</li>
+          <li>荷物で前が見えない状況、歩行者</li>
+          <li>検定、指導者のコース作成とQR配布</li>
+          <li><b>会社向けのお試し：</b>事前・事後の1分チェック、受講記録、振り返り報告（ご相談ください）</li>
+        </ul>
+        <p class="langs">日本語・やさしい日本語・英語・ベトナム語・インドネシア語</p>
+        <a class="btn primary" href="https://sakamoto20220205.github.io/forklift-guide-training/" target="_blank" rel="noopener">体験版を開く</a>
+      </div>
+      <div class="card app">
+        <span class="status ok">体験版あり</span>
+        <h3>建機セーフティ・シム（油圧ショベル）</h3>
+        <ul>
+          <li>安全の基本8つ（旋回範囲の立入禁止・死角・合図など）</li>
+          <li>作業前点検、ダンプへの積込み</li>
+          <li>誘導員モード：後退誘導、旋回範囲に人が入ったときのストップ合図</li>
+          <li>危険予知クイズ、運転席からの3D視点</li>
+        </ul>
+        <p class="langs">日本語・やさしい日本語・英語・ベトナム語・インドネシア語</p>
+        <a class="btn ghost" href="https://sakamoto20220205.github.io/kenki-safety-sim/" target="_blank" rel="noopener">体験版を開く</a>
+      </div>
+      <div class="card app">
+        <span class="status ok">体験版あり</span>
+        <h3>日本の運転れんしゅう（乗用車）</h3>
+        <ul>
+          <li>左側通行・標識・交通ルール（外免切替の予習を含む）</li>
+                    <li>教習所のコース（S字・クランクなど）と検定の練習、自由に走る</li>
+          <li>危険予測、交通ルール問題集</li>
+        </ul>
+        <p class="langs">日本語・やさしい日本語・英語・ベトナム語・中国語・インドネシア語</p>
+        <a class="btn ghost" href="https://sakamoto20220205.github.io/japan-driving-practice/" target="_blank" rel="noopener">体験版を開く</a>
+      </div>
+    </div>
+    <p class="note">体験版はどなたでも無料でお使いいただけます。記録はお使いの端末の中だけに保存され、当社のサーバーには送られません。運転・操作の資格や免許の代わりにはなりません。</p>
+  </div>
+</section>
+
+<!-- 使い方 -->
+<section class="alt" id="use">
+  <div class="wrap">
+    <h2>使う場面</h2>
+    <p class="sec-lead">講習の代わりではなく、講習や現場での教育の効果を上げるための補助教材です。</p>
+    <div class="grid3">
+      <div class="card"><h3>受入れ前の予習</h3><p>外国人の方の入社前・入国後に、母語で危ない場所と合図を予習してもらいます。</p></div>
+      <div class="card"><h3>講習の前後</h3><p>技能講習・特別教育の前に予習、あとで復習。実機の時間を有効に使えます。</p></div>
+      <div class="card"><h3>雇入れ時・定期の安全教育</h3><p>指導者が自社の配置に近いコースを作り、QRコードで配れます。</p></div>
+    </div>
+
+    <h2 style="margin-top:44px">お試しの流れ</h2>
+    <div class="steps" style="margin-top:16px">
+      <div class="card"><span class="num">1</span><h3>体験版を試す</h3><p>まずは無料の体験版で、内容をご確認ください。</p></div>
+      <div class="card"><span class="num">2</span><h3>お試しを相談する</h3><p>人数・言語・使う場面を伺い、お試し版のご案内をお送りします。</p></div>
+      <div class="card"><span class="num">3</span><h3>3人・2週間使う</h3><p>事前チェック → 訓練 → 事後チェック。実機を止めずに、スマホで練習できます。</p></div>
+      <div class="card"><span class="num">4</span><h3>30分で振り返る</h3><p>社長・総務・現場のリーダーがそろって、振り返り報告の同じ数字を見て、続けるかを決めます。</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 料金 -->
+<section id="price">
+  <div class="wrap">
+    <h2>料金</h2>
+    <p class="sec-lead">表示はすべて税込です。価格は案のため、変わる場合があります。お試しは自動で更新されません。</p>
+    <div class="grid3">
+      <div class="card price feature">
+        <span class="badge">まずはこちら</span>
+        <span class="label">お試し</span>
+        <div class="amount">5,000円<small>（税込・案）／2週間</small></div>
+        <ul>
+          <li>3人までご利用いただけます</li>
+          <li>事前・事後の1分チェック、受講記録、振り返り報告</li>
+          <li>自動更新なし（2週間で終了）</li>
+          <li>終了後に30分の振り返り（関係者がそろって、同じ数字を見て決めます）</li>
+        </ul>
+        <a class="btn primary" href="#contact">お試しを相談する</a>
+      </div>
+      <div class="card price">
+        <span class="label">本番（月額）</span>
+        <div class="amount">1,000円<small>（税込・案）／1人・月〜</small></div>
+        <ul>
+          <li>10人からのご契約</li>
+          <li>受講記録・検定結果の確認と出力</li>
+          <li>指導者のコース作成・QR配布</li>
+          <li>いつでも解約できます</li>
+        </ul>
+        <a class="btn ghost" href="#contact">相談する</a>
+      </div>
+      <div class="card price">
+        <span class="label">作り込み</span>
+        <div class="amount" style="font-size:24px">要相談</div>
+        <ul>
+          <li>現場の配置・車両・言語に合わせた調整</li>
+          <li>講習機関・受入れ支援機関向けのご利用</li>
+          <li>まとまった人数でのご利用</li>
+        </ul>
+        <a class="btn ghost" href="#contact">相談する</a>
+      </div>
+    </div>
+    <p class="note">お支払いは、ご相談のうえ請求書（銀行振込）でお願いしています。振込手数料はお客さまのご負担となります。</p>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="alt" id="faq">
+  <div class="wrap">
+    <h2>よくある質問</h2>
+    <details><summary>このアプリで資格は取れますか？講習の代わりになりますか？</summary><p>いいえ。本アプリは安全教育の補助教材です。法定の技能講習・特別教育・運転免許の教習の代わりにはなりません。実際の運転・操作には、所定の講習の修了や免許が必要です。</p></details>
+    <details><summary>どの端末で使えますか？</summary><p>スマホ・タブレット・PCのブラウザで動きます。インストールやVRゴーグルなどの専用機材は不要です。</p></details>
+    <details><summary>ネットがない場所でも使えますか？</summary><p>スマホのホーム画面に追加すると、オフラインでも使える形があります（アプリによって異なります）。</p></details>
+    <details><summary>どの言語に対応していますか？</summary><p>日本語・やさしい日本語・英語・ベトナム語・インドネシア語です。ネパール語などを準備中です。</p></details>
+    <details><summary>自社の倉庫や現場に合わせられますか？</summary><p>指導者がコースを作ってQRで配る機能があります。より細かい作り込みはご相談ください。</p></details>
+    <details><summary>補助金や助成金は使えますか？</summary><p>条件によっては、教育訓練の費用の一部が助成される制度がある場合があります。対象になるかは制度の窓口でご確認ください。必要であれば、確認のお手伝いをします。</p></details>
+  </div>
+</section>
+
+<!-- 注意 -->
+<section id="caution">
+  <div class="wrap">
+    <div class="caution"><b>ご注意</b>：本アプリは安全教育の補助教材です。法定の技能講習・特別教育・運転免許の教習の代わりにはなりません。実際の運転・操作は、所定の講習の修了や免許を取得したうえで、現場のルールに従って行ってください。</div>
+  </div>
+</section>
+
+<!-- ご相談 -->
+<section class="alt" id="contact">
+  <div class="wrap">
+    <h2>お試しのご相談・お問い合わせ</h2>
+    <p class="sec-lead">会社名・ご担当者名・人数・使いたい言語などをお送りください。内容を確認のうえ、担当よりご連絡します。</p>
+    <p><a class="btn primary" id="contactBtn" href="#contact">相談フォームを開く</a></p>
+    <p class="note" id="contactNote"></p>
+  </div>
+</section>
+
+<!-- 運営者 -->
+<section id="law">
+  <div class="wrap">
+    <h2>運営者</h2>
+    <table class="law">
+      <tr><th>事業者</th><td>合同会社アップテック</td></tr>
+      <tr><th>責任者</th><td>坂本 裕朗</td></tr>
+      <tr id="addrRow"><th>所在地</th><td id="addr"></td></tr>
+      <tr><th>お取引</th><td>ご相談のうえ、お見積り・請求書でのお取引です（このページでの決済はありません）。</td></tr>
+    </table>
+
+    <h2 style="margin-top:40px">個人情報の取り扱い</h2>
+    <p style="font-size:15px">ご相談で頂いた情報は、ご連絡とサービスの提供のためにのみ利用し、法令に基づく場合を除き第三者に提供しません。お試し版の受講記録（受講者の呼び名・受講日時・結果）は、お使いの端末のブラウザの中だけに保存され、当社のサーバーには送られません。受講者の在留資格などの個人情報はお預かりしません。</p>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>運転・操作の安全教育アプリ　｜　合同会社アップテック</p>
+    <p style="margin-top:6px"><a href="#law">運営者</a>　／　<a href="#contact">ご相談</a></p>
+    <p style="margin-top:10px;color:#9fb0c3">本アプリは安全教育の補助教材です。法定の講習・教習の代わりにはなりません。</p>
+  </div>
+</footer>
+
+<script>
+// 公開前に設定する項目（空のままなら、その部分は出さない）
+const CONFIG = {
+  contactUrl: "",   // 相談フォームのURL（Googleフォームなど）
+  address: ""       // 所在地（出さない場合は空のまま）
+};
+(function(){
+  const btn = document.getElementById('contactBtn'), note = document.getElementById('contactNote');
+  if (CONFIG.contactUrl) { btn.href = CONFIG.contactUrl; btn.target = '_blank'; btn.rel = 'noopener'; }
+  else { btn.style.display = 'none'; note.textContent = '相談フォームは準備中です。'; }
+  if (CONFIG.address) document.getElementById('addr').textContent = CONFIG.address;
+  else document.getElementById('addrRow').remove();
+})();
+</script>
+</body>
+</html>
